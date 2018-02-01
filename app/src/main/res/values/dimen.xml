@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="textSizeTitle">20sp</dimen>
+    <dimen name="buttonTextSize">15sp</dimen>
+    <dimen name="subheadingText">16sp</dimen>
+    <dimen name="bodyText">14sp</dimen>
+    <dimen name="screenMarginLeft">16dp</dimen>
+    <dimen name="screenMarginRight">16dp</dimen>
+    <dimen name="contentSpace">8dp</dimen>
+    <dimen name="splashIconWidth">160dp</dimen>
+</resources>

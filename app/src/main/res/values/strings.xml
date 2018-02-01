@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SnookerTracker-1856482</string>
+    <string name="app_name_short">Snooker Tracker</string>
+    <string name="welcome">Welcome!</string>
 </resources>
