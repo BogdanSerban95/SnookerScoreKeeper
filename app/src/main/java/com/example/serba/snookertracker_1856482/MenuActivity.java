@@ -1,5 +1,6 @@
 package com.example.serba.snookertracker_1856482;
 
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
