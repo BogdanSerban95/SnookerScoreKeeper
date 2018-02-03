@@ -1,4 +1,4 @@
-package com.example.serba.snookertracker_1856482;
+package com.example.serba.snookertracker_1856482.models;
 
 import android.app.Activity;
 import android.content.Context;

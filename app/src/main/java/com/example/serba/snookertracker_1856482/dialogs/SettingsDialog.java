@@ -1,4 +1,4 @@
-package com.example.serba.snookertracker_1856482;
+package com.example.serba.snookertracker_1856482.dialogs;
 
 
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Spinner;
+
+import com.example.serba.snookertracker_1856482.R;
 
 
 /**

@@ -1,10 +1,13 @@
-package com.example.serba.snookertracker_1856482;
+package com.example.serba.snookertracker_1856482.activities;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+
+import com.example.serba.snookertracker_1856482.R;
+import com.example.serba.snookertracker_1856482.models.ThemeUtils;
 
 public class SplashScreen extends AppCompatActivity {
 

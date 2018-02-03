@@ -11,6 +11,13 @@
     <string name="app_theme">App theme:</string>
     <string name="change_theme">Change Theme</string>
     <string name="theme_changed">Theme was successfuly changed!</string>
+    <string name="solo">Solo</string>
+    <string name="teams">Teams</string>
+    <string name="player_one">Player One</string>
+    <string name="players_name">Player\'s Name</string>
+    <string name="player_two">Player Two</string>
+    <string name="first_team">First Team</string>
+    <string name="second_team">Second Team</string>
 
     <string-array name="themes">
         <item>Grass</item>
