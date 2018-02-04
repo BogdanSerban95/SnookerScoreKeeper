@@ -9,11 +9,14 @@
         android:id="@+id/avatar_image_view"
         android:layout_width="120dp"
         android:layout_height="120dp"
+        android:background="@drawable/border"
+        android:elevation="5dp"
+        android:padding="3dp"
         android:scaleType="fitXY"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/snooker_ico_2" />
+        app:srcCompat="@drawable/avatar" />
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/textInputLayout6"
@@ -29,7 +32,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:selectAllOnFocus="true"
             android:text="@string/players_name"
             android:textSize="@dimen/buttonTextSize" />
     </android.support.design.widget.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/avatar_image_view"
+        app:layout_constraintTop_toTopOf="@+id/avatar_image_view"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
 </android.support.constraint.ConstraintLayout>
