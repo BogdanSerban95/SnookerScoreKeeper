@@ -18,6 +18,7 @@
     <string name="player_two">Player Two</string>
     <string name="first_team">First Team</string>
     <string name="second_team">Second Team</string>
+    <string name="empty_field_error">Field must not be empty</string>
 
     <string-array name="themes">
         <item>Grass</item>
