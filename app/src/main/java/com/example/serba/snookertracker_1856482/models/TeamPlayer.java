@@ -1,5 +1,6 @@
 package com.example.serba.snookertracker_1856482.models;
 
+import java.io.Serializable;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;

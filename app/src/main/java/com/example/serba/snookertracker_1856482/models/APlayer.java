@@ -1,10 +1,12 @@
 package com.example.serba.snookertracker_1856482.models;
 
+import java.io.Serializable;
+
 /**
  * Created by serba on 03/02/2018.
  */
 
-public abstract class APlayer {
+public abstract class APlayer implements Serializable {
     protected String name;
     protected int score;
 

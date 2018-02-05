@@ -19,6 +19,7 @@
     <string name="first_team">First Team</string>
     <string name="second_team">Second Team</string>
     <string name="empty_field_error">Field must not be empty</string>
+    <string name="photo_error">Error while preparing camera</string>
 
     <string-array name="themes">
         <item>Grass</item>

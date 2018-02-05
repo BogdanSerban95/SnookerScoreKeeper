@@ -1,25 +1,28 @@
 package com.example.serba.snookertracker_1856482.models;
 
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+
+import java.io.Serializable;
 
 /**
  * Created by serba on 03/02/2018.
  */
 
 public class SoloPlayer extends APlayer {
-    private Bitmap avatar;
+    private String avatarPath;
 
     public SoloPlayer(String name) {
         this.name = name;
         this.score = 0;
     }
 
-    public Bitmap getAvatar() {
-        return avatar;
+    public String getAvatar() {
+        return avatarPath;
     }
 
-    public void setAvatar(Bitmap avatar) {
-        this.avatar = avatar;
+    public void setAvatar(String avatar) {
+        this.avatarPath = avatar;
     }
 
     @Override
