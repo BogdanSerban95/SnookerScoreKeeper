@@ -26,6 +26,8 @@
     <string name="team_one">Team One</string>
     <string name="team_two">Team Two</string>
     <string name="now_striking">Now Striking</string>
+    <string name="foul">FOUL!</string>
+    <string name="end_frame">End Frame</string>
 
     <string-array name="themes">
         <item>Grass</item>
