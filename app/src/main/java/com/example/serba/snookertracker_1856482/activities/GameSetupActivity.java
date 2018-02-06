@@ -29,10 +29,9 @@ import java.util.Date;
 
 public class GameSetupActivity extends AppCompatActivity {
     public static String TEAM_MODE = "team_mode";
-    public static String FIRST_TEAM = "first_team";
-    public static String SECOND_TEAM = "second_team";
-    public static String FIRST_PLAYER = "first_player";
-    public static String SECOND_PLAYER = "second_player";
+    public static String PLAYER_ONE = "player_one";
+    public static String PLAYER_TWO = "player_two";
+
 
     private int lastClickedPlayerImageId = -1;
     private String lastSavedImagePath = null;
@@ -91,13 +90,13 @@ public class GameSetupActivity extends AppCompatActivity {
                     secondTeam.addPlayer(getPlayerFromItem(team_2_player_1));
                     secondTeam.addPlayer(getPlayerFromItem(team_2_player_2));
 
-                    arguments.putSerializable(FIRST_TEAM, firstTeam);
-                    arguments.putSerializable(SECOND_TEAM, secondTeam);
+                    arguments.putSerializable(PLAYER_ONE, firstTeam);
+                    arguments.putSerializable(PLAYER_TWO, secondTeam);
                 } else {
                     APlayer playerOne = getPlayerFromItem(team_1_player_1);
-                    arguments.putSerializable(FIRST_PLAYER, playerOne);
+                    arguments.putSerializable(PLAYER_ONE, playerOne);
                     APlayer playerTwo = getPlayerFromItem(team_2_player_1);
-                    arguments.putSerializable(SECOND_PLAYER, playerTwo);
+                    arguments.putSerializable(PLAYER_TWO, playerTwo);
                 }
                 Intent intent = new Intent(getApplicationContext(), GameActivity.class);
                 intent.putExtras(arguments);
@@ -108,8 +107,8 @@ public class GameSetupActivity extends AppCompatActivity {
     }
 
     private SoloPlayer getPlayerFromItem(PlayerItemHolder item) {
-        SoloPlayer player = new SoloPlayer(team_1_player_1.getName());
-        player.setAvatar(team_1_player_1.getAvatarPath());
+        SoloPlayer player = new SoloPlayer(item.getName());
+        player.setAvatar(item.getAvatarPath());
         return player;
     }
 

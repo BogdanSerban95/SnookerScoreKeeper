@@ -25,4 +25,12 @@ public abstract class APlayer implements Serializable {
     public abstract void resetScore();
 
     public abstract int getScore();
+
+    @Override
+    public String toString() {
+        return "APlayer{" +
+                "name='" + name + '\'' +
+                ", score=" + score +
+                '}';
+    }
 }
