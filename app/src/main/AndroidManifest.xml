@@ -22,9 +22,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.MenuActivity" />
-        <activity
-            android:name=".activities.GameSetupActivity"
-            android:noHistory="true" />
+        <activity android:name=".activities.GameSetupActivity" />
         <activity android:name=".activities.GameActivity" />
 
         <provider

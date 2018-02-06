@@ -21,13 +21,14 @@
     <string name="empty_field_error">Field must not be empty</string>
     <string name="photo_error">Error while preparing camera</string>
     <string name="dummy_name">Dummy Name</string>
-    <string name="dummy_score">56 points</string>
+    <string name="dummy_score">56</string>
     <string name="total_points">Total Points:</string>
     <string name="team_one">Team One</string>
     <string name="team_two">Team Two</string>
     <string name="now_striking">Now Striking</string>
     <string name="foul">FOUL!</string>
     <string name="end_frame">End Frame</string>
+    <string name="points">points</string>
 
     <string-array name="themes">
         <item>Grass</item>
