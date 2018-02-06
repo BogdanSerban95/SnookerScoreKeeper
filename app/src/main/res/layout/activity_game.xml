@@ -135,7 +135,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/dummy_name"
-        android:textSize="@dimen/subheadingText"
+        android:textSize="@dimen/textSubheadingSize"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -144,12 +144,12 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/now_striking"
         android:textAllCaps="true"
-        android:textSize="@dimen/textSizeTitle"
+        android:textSize="@dimen/textHeadingSize"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toStartOf="@+id/end_frame_button"
@@ -161,24 +161,26 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:clickable="true"
+        android:focusable="true"
         app:backgroundTint="@color/ballYellow"
         app:layout_constraintBottom_toBottomOf="@+id/ball_green_button"
         app:layout_constraintEnd_toStartOf="@+id/ball_green_button"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ball_green_button" android:focusable="true" />
+        app:layout_constraintTop_toTopOf="@+id/ball_green_button" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/ball_green_button"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:clickable="true"
+        android:focusable="true"
         app:backgroundTint="@color/ballGreen"
         app:layout_constraintBottom_toBottomOf="@+id/ball_brown_button"
         app:layout_constraintEnd_toStartOf="@+id/ball_brown_button"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ball_yellow_button"
-        app:layout_constraintTop_toTopOf="@+id/ball_brown_button" android:focusable="true" />
+        app:layout_constraintTop_toTopOf="@+id/ball_brown_button" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/ball_brown_button"
@@ -186,47 +188,51 @@
         android:layout_height="80dp"
         android:layout_marginTop="32dp"
         android:clickable="true"
+        android:focusable="true"
         app:backgroundTint="@color/ballBrown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ball_green_button"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" android:focusable="true" />
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/ball_blue_button"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:clickable="true"
+        android:focusable="true"
         app:backgroundTint="@color/ballBlue"
         app:layout_constraintEnd_toStartOf="@+id/ball_pink_button"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ball_brown_button" android:focusable="true" />
+        app:layout_constraintTop_toBottomOf="@+id/ball_brown_button" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/ball_pink_button"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:clickable="true"
+        android:focusable="true"
         app:backgroundTint="@color/ballPink"
         app:layout_constraintBottom_toBottomOf="@+id/ball_blue_button"
         app:layout_constraintEnd_toStartOf="@+id/ball_black_button"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ball_blue_button"
-        app:layout_constraintTop_toTopOf="@+id/ball_blue_button" android:focusable="true" />
+        app:layout_constraintTop_toTopOf="@+id/ball_blue_button" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/ball_black_button"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:clickable="true"
+        android:focusable="true"
         app:backgroundTint="@color/ballBlack"
         app:layout_constraintBottom_toBottomOf="@+id/ball_pink_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/ball_pink_button"
-        app:layout_constraintTop_toTopOf="@+id/ball_pink_button" android:focusable="true" />
+        app:layout_constraintTop_toTopOf="@+id/ball_pink_button" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/miss_ball_button"
@@ -236,12 +242,13 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:clickable="true"
+        android:focusable="true"
         android:tint="@color/ballRed"
         app:backgroundTint="@color/ballMiss"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@android:drawable/ic_delete" android:focusable="true" />
+        app:srcCompat="@android:drawable/ic_delete" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/red_ball_button"
@@ -252,13 +259,14 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:clickable="true"
-        android:visibility="visible"
+        android:focusable="true"
+        android:visibility="gone"
         app:backgroundTint="@color/ballRed"
         app:layout_constraintBottom_toTopOf="@+id/miss_ball_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" android:focusable="true" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
@@ -289,12 +297,12 @@
         android:id="@+id/break_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:visibility="visible"
         app:constraint_referenced_ids="ball_brown_button,ball_pink_button,ball_yellow_button,ball_blue_button,ball_green_button,ball_black_button" />
 
     <Button
         android:id="@+id/foul_button"
-        android:layout_width="100dp"
+        android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:background="@color/ballRed"
@@ -308,7 +316,7 @@
 
     <Button
         android:id="@+id/end_frame_button"
-        android:layout_width="100dp"
+        android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginEnd="8dp"
         android:text="@string/end_frame"

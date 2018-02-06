@@ -36,6 +36,11 @@ public class SoloPlayer extends APlayer {
     }
 
     @Override
+    public APlayer getNextPlayer() {
+        return this;
+    }
+
+    @Override
     public void increaseScore(int amount) {
         if (amount >= 0) {
             this.score += amount;

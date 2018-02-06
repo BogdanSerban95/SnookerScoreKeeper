@@ -145,7 +145,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/dummy_name"
-        android:textSize="@dimen/subheadingText"
+        android:textSize="@dimen/textHeadingSize"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="@+id/textView8"
         app:layout_constraintStart_toStartOf="@+id/textView8"
@@ -278,12 +278,13 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:clickable="true"
-        android:visibility="visible"
+        android:focusable="true"
+        android:visibility="gone"
         app:backgroundTint="@color/ballRed"
         app:layout_constraintBottom_toTopOf="@+id/miss_ball_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/textView6" android:focusable="true" />
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
@@ -314,7 +315,7 @@
         android:id="@+id/break_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:visibility="visible"
         app:constraint_referenced_ids="ball_brown_button,ball_pink_button,ball_yellow_button,ball_blue_button,ball_green_button,ball_black_button"
         app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="parent"

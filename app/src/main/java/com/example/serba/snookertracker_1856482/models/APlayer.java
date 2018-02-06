@@ -26,6 +26,8 @@ public abstract class APlayer implements Serializable {
 
     public abstract int getScore();
 
+    public abstract APlayer getNextPlayer();
+
     @Override
     public String toString() {
         return "APlayer{" +

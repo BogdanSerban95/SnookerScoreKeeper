@@ -18,14 +18,12 @@ import java.io.File;
  */
 
 public class PlayerItemHolder {
-    private Context context;
     private ImageView avatarImageView;
     private TextInputEditText nameEditText;
     private String avatarPath;
 
     public PlayerItemHolder(View parent, View.OnClickListener imageListener) {
         if (parent != null) {
-            this.context = parent.getContext();
             this.avatarImageView = parent.findViewById(R.id.avatar_image_view);
             this.nameEditText = parent.findViewById(R.id.player_name_edit_text);
             this.avatarImageView.setOnClickListener(imageListener);
@@ -37,12 +35,9 @@ public class PlayerItemHolder {
         File imgFile = new File(avatarPath);
 
         if (imgFile.exists()) {
-
             Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
             this.avatarImageView.setImageBitmap(myBitmap);
-
         }
-
     }
 
     public String getAvatarPath() {

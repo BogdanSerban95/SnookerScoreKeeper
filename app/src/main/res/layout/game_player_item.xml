@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/game_avatar_image_view"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:scaleType="fitXY"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/dummy_name"
-        android:textSize="@dimen/subheadingText"
+        android:textSize="@dimen/textSubheadingSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/game_avatar_image_view"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,7 +32,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/dummy_score"
-        android:textSize="@dimen/buttonTextSize"
+        android:textSize="@dimen/textSmallSubheadingSize"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/game_avatar_image_view"
         app:layout_constraintTop_toBottomOf="@+id/game_player_name_text_view" />

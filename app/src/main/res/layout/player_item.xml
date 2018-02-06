@@ -34,7 +34,7 @@
             android:gravity="center"
             android:selectAllOnFocus="true"
             android:text="@string/players_name"
-            android:textSize="@dimen/buttonTextSize" />
+            android:textSize="@dimen/textButtonSize" />
     </android.support.design.widget.TextInputLayout>
 
     <ImageView
