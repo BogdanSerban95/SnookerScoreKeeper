@@ -57,6 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:text="@string/total_points"
+        android:textSize="@dimen/textSubheadingSize"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/end_frame_button"
         app:layout_constraintStart_toStartOf="@+id/team_2_player_2" />
@@ -67,6 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/dummy_score"
+        android:textSize="@dimen/textSubheadingSize"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView7"
         app:layout_constraintStart_toEndOf="@+id/textView7" />
@@ -77,6 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:text="@string/total_points"
+        android:textSize="@dimen/textSubheadingSize"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/foul_button"
         app:layout_constraintStart_toStartOf="@+id/team_1_player_2" />
@@ -87,6 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="@string/dummy_score"
+        android:textSize="@dimen/textSubheadingSize"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView4"
         app:layout_constraintStart_toEndOf="@+id/textView4" />
@@ -259,7 +263,7 @@
         android:clickable="true"
         android:focusable="true"
         android:onClick="handlePottedBall"
-        android:visibility="gone"
+        android:visibility="visible"
         app:backgroundTint="@color/ballRed"
         app:layout_constraintBottom_toTopOf="@+id/ball_miss_button"
         app:layout_constraintEnd_toEndOf="parent"
@@ -285,7 +289,7 @@
         android:id="@+id/team_mode_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="gone"
         app:constraint_referenced_ids="team_1_score_label,team_2_player_2,team_1_player_2,textView4,textView7,team_2_score_label"
         app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintEnd_toStartOf="parent"
@@ -296,7 +300,7 @@
         android:id="@+id/break_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="gone"
         app:constraint_referenced_ids="ball_brown_button,ball_pink_button,ball_yellow_button,ball_blue_button,ball_green_button,ball_black_button" />
 
     <Button
@@ -324,26 +328,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/textView8" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:text="@string/points"
-        android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/team_1_score_label"
-        app:layout_constraintStart_toEndOf="@+id/team_1_score_label" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:text="@string/points"
-        android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/team_2_score_label"
-        app:layout_constraintStart_toEndOf="@+id/team_2_score_label" />
 
 
 </android.support.constraint.ConstraintLayout>

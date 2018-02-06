@@ -29,6 +29,10 @@
     <string name="foul">FOUL!</string>
     <string name="end_frame">End Frame</string>
     <string name="points">points</string>
+    <string name="rank_dummy">1</string>
+    <string name="player_rankings">Player Rankings</string>
+    <string name="play_again">Play Again</string>
+    <string name="end_game">End Game</string>
 
     <string-array name="themes">
         <item>Grass</item>
