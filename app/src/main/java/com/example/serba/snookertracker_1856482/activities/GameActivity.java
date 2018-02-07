@@ -1,25 +1,22 @@
 package com.example.serba.snookertracker_1856482.activities;
 
-import android.content.res.ColorStateList;
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.serba.snookertracker_1856482.R;
-import com.example.serba.snookertracker_1856482.dialogs.GameOverDialog;
+import com.example.serba.snookertracker_1856482.dialogs.MatchResultsDialog;
+import com.example.serba.snookertracker_1856482.dialogs.MatchResultsDialogListener;
 import com.example.serba.snookertracker_1856482.models.APlayer;
 import com.example.serba.snookertracker_1856482.models.FrameListener;
 import com.example.serba.snookertracker_1856482.models.FrameManager;
 import com.example.serba.snookertracker_1856482.models.GamePlayerHolder;
 import com.example.serba.snookertracker_1856482.models.SnookerBalls;
 import com.example.serba.snookertracker_1856482.models.SoloPlayer;
-import com.example.serba.snookertracker_1856482.models.TeamPlayer;
 
 public class GameActivity extends AppCompatActivity {
     private boolean teamModeOn = false;
@@ -156,14 +153,29 @@ public class GameActivity extends AppCompatActivity {
 
     public void endGame() {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        GameOverDialog gameOverDialog = new GameOverDialog();
+        MatchResultsDialog matchResultsDialog = new MatchResultsDialog();
 
         Bundle extras = new Bundle();
         extras.putSerializable(GameSetupActivity.PLAYER_ONE, playerOne);
         extras.putSerializable(GameSetupActivity.PLAYER_TWO, playerTwo);
         extras.putBoolean(GameSetupActivity.TEAM_MODE, teamModeOn);
-        gameOverDialog.setArguments(extras);
+        matchResultsDialog.setArguments(extras);
 
-        gameOverDialog.show(transaction, "game_over_dialog");
+        matchResultsDialog.setCancelable(false);
+        matchResultsDialog.setDialogListener(new MatchResultsDialogListener() {
+            @Override
+            public void onPlayAgainSelected() {
+                frameManager.initialiseFrame();
+            }
+
+            @Override
+            public void onEndMatchSelected() {
+                Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+            }
+        });
+
+        matchResultsDialog.show(transaction, "game_over_dialog");
     }
 }

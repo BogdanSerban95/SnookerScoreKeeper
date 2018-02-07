@@ -17,6 +17,7 @@ public class GamePlayerHolder {
     private TextView nameTextView;
     private TextView scoreTextView;
     private ImageView avatarImageView;
+    private TextView rankTextView;
 
     public GamePlayerHolder(View parent) {
         if (parent != null) {
@@ -24,6 +25,7 @@ public class GamePlayerHolder {
             nameTextView = parent.findViewById(R.id.game_player_name_text_view);
             scoreTextView = parent.findViewById(R.id.game_player_score_text_view);
             avatarImageView = parent.findViewById(R.id.game_avatar_image_view);
+            rankTextView = parent.findViewById(R.id.game_player_rank_label);
         }
     }
 
@@ -51,8 +53,20 @@ public class GamePlayerHolder {
         this.setAvatar(player.getAvatar());
     }
 
+    public void setPlayer(SoloPlayer player, int rank) {
+        this.setName(player.getName());
+        this.setScore(player.getScore());
+        this.setAvatar(player.getAvatar());
+        this.setRank(rank);
+    }
+
     public void updateViews() {
         SoloPlayer taggedPlayer = (SoloPlayer) this.parent.getTag();
         this.setScore(taggedPlayer.getScore());
+    }
+
+
+    public void setRank(int rank) {
+        this.rankTextView.setText(String.valueOf(rank));
     }
 }

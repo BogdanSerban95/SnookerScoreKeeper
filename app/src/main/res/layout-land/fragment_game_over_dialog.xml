@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:paddingEnd="@dimen/screenMarginRight"
     android:paddingStart="@dimen/screenMarginLeft"
-    tools:context="com.example.serba.snookertracker_1856482.dialogs.GameOverDialog"
+    tools:context="com.example.serba.snookertracker_1856482.dialogs.MatchResultsDialog"
     tools:layout_editor_absoluteY="73dp">
 
     <ImageView
@@ -139,7 +139,7 @@
         android:id="@+id/team_players_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="gone"
         app:constraint_referenced_ids="rank_3_player_item,rank_4_player_item"
         tools:layout_editor_absoluteX="16dp" />
 

@@ -33,6 +33,7 @@
     <string name="player_rankings">Player Rankings</string>
     <string name="play_again">Play Again</string>
     <string name="end_game">End Game</string>
+    <string name="camera_error">Error encountered while getting camera ready</string>
 
     <string-array name="themes">
         <item>Grass</item>

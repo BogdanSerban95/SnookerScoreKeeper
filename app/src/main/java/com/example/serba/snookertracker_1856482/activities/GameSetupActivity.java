@@ -124,11 +124,18 @@ public class GameSetupActivity extends AppCompatActivity {
                 Toast.makeText(this, getResources().getString(R.string.photo_error), Toast.LENGTH_SHORT).show();
             }
             if (photoFile != null) {
-                Uri photoURI = FileProvider.getUriForFile(this,
-                        "com.example.serba.snookertracker_1856482.fileprovider",
-                        photoFile);
-                cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                startActivityForResult(cameraIntent, CAMERA_REQUEST);
+                try {
+                    Uri photoURI = FileProvider.getUriForFile(this,
+                            "com.example.serba.snookertracker_1856482.fileprovider",
+                            photoFile);
+                    cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                    if (cameraIntent.resolveActivity(getPackageManager()) != null) {
+                        startActivityForResult(cameraIntent, CAMERA_REQUEST);
+                    }
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                    Toast.makeText(this, getResources().getString(R.string.camera_error), Toast.LENGTH_SHORT).show();
+                }
             }
         }
     }
@@ -137,7 +144,7 @@ public class GameSetupActivity extends AppCompatActivity {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File storageDir = getFilesDir();
         File imageFile = File.createTempFile(
                 imageFileName,  /* prefix */
                 ".jpg",         /* suffix */
@@ -145,6 +152,7 @@ public class GameSetupActivity extends AppCompatActivity {
         );
 
         lastSavedImagePath = imageFile.getAbsolutePath();
+//        Log.e("env", storageDir.getAbsolutePath());
         return imageFile;
     }
 
