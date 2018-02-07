@@ -16,7 +16,6 @@ public class SplashScreen extends AppCompatActivity {
         int SPLASH_TIME_OUT = 1500;
 
         ThemeUtils.setTheme(this);
-        Log.e("Splash", "Splash out!");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 

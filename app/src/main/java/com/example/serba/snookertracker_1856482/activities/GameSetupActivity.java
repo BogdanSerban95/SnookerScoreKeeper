@@ -21,6 +21,7 @@ import com.example.serba.snookertracker_1856482.models.APlayer;
 import com.example.serba.snookertracker_1856482.models.PlayerItemHolder;
 import com.example.serba.snookertracker_1856482.models.SoloPlayer;
 import com.example.serba.snookertracker_1856482.models.TeamPlayer;
+import com.example.serba.snookertracker_1856482.models.ThemeUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -51,6 +52,7 @@ public class GameSetupActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ThemeUtils.setTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_setup);
 

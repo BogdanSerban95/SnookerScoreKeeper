@@ -18,6 +18,7 @@ import com.example.serba.snookertracker_1856482.models.FrameManager;
 import com.example.serba.snookertracker_1856482.models.GamePlayerHolder;
 import com.example.serba.snookertracker_1856482.models.SnookerBalls;
 import com.example.serba.snookertracker_1856482.models.SoloPlayer;
+import com.example.serba.snookertracker_1856482.models.ThemeUtils;
 
 public class GameActivity extends AppCompatActivity {
     private boolean teamModeOn = false;
@@ -37,6 +38,7 @@ public class GameActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ThemeUtils.setTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
