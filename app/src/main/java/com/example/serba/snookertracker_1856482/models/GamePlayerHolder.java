@@ -40,7 +40,9 @@ public class GamePlayerHolder {
 
     public void setAvatar(String avatarPath) {
         if (avatarPath != null) {
-            Bitmap bitmap = BitmapFactory.decodeFile(avatarPath);
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inSampleSize = 4;
+            Bitmap bitmap = BitmapFactory.decodeFile(avatarPath, options);
             avatarImageView.setImageBitmap(bitmap);
         } else {
             avatarImageView.setImageDrawable(this.parent.getContext().getDrawable(R.drawable.avatar));

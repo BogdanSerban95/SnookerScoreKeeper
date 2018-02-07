@@ -41,7 +41,9 @@ public class PlayerItemHolder {
         if (avatarPath != null) {
             File imgFile = new File(avatarPath);
             if (imgFile.exists()) {
-                Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+                BitmapFactory.Options options = new BitmapFactory.Options();
+                options.inSampleSize = 4;
+                Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath(), options);
                 this.avatarImageView.setImageBitmap(myBitmap);
             }
         } else {

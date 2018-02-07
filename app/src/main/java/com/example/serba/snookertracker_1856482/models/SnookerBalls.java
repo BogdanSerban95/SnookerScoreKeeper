@@ -1,10 +1,12 @@
 package com.example.serba.snookertracker_1856482.models;
 
+import java.io.Serializable;
+
 /**
  * Created by serba on 03/02/2018.
  */
 
-public enum SnookerBalls {
+public enum SnookerBalls implements Serializable {
     RED(1),
     YELLOW(2),
     GREEN(3),
