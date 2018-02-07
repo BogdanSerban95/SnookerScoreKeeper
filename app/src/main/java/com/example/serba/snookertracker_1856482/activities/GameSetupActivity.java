@@ -28,6 +28,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class GameSetupActivity extends AppCompatActivity {
+    private static final String TEAM_1_PLAYER_1 = "TEAM_1_PLAYER_1";
+    private static final String TEAM_2_PLAYER_1 = "TEAM_2_PLAYER_1";
+    private static final String TEAM_1_PLAYER_2 = "TEAM_1_PLAYER_2";
+    private static final String TEAM_2_PLAYER_2 = "TEAM_2_PLAYER_2";
     public static String TEAM_MODE = "team_mode";
     public static String PLAYER_ONE = "player_one";
     public static String PLAYER_TWO = "player_two";
@@ -73,37 +77,40 @@ public class GameSetupActivity extends AppCompatActivity {
         findViewById(R.id.begin_match_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (!areViewsValid()) {
+                    return;
+                }
                 Bundle arguments = new Bundle();
                 arguments.putBoolean(TEAM_MODE, teamMode);
 
                 if (teamMode) {
                     TeamPlayer firstTeam = new TeamPlayer(null);
-                    firstTeam.addPlayer(getPlayerFromItem(team_1_player_1));
-                    firstTeam.addPlayer(getPlayerFromItem(team_1_player_2));
+                    firstTeam.addPlayer(team_1_player_1.getPlayer());
+                    firstTeam.addPlayer(team_1_player_2.getPlayer());
                     TeamPlayer secondTeam = new TeamPlayer(null);
-                    secondTeam.addPlayer(getPlayerFromItem(team_2_player_1));
-                    secondTeam.addPlayer(getPlayerFromItem(team_2_player_2));
+                    secondTeam.addPlayer(team_2_player_1.getPlayer());
+                    secondTeam.addPlayer(team_2_player_2.getPlayer());
 
                     arguments.putSerializable(PLAYER_ONE, firstTeam);
                     arguments.putSerializable(PLAYER_TWO, secondTeam);
                 } else {
-                    APlayer playerOne = getPlayerFromItem(team_1_player_1);
+                    APlayer playerOne = team_1_player_1.getPlayer();
                     arguments.putSerializable(PLAYER_ONE, playerOne);
-                    APlayer playerTwo = getPlayerFromItem(team_2_player_1);
+                    APlayer playerTwo = team_2_player_1.getPlayer();
                     arguments.putSerializable(PLAYER_TWO, playerTwo);
                 }
                 Intent intent = new Intent(getApplicationContext(), GameActivity.class);
                 intent.putExtras(arguments);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(intent);
             }
         });
     }
 
-    private SoloPlayer getPlayerFromItem(PlayerItemHolder item) {
-        SoloPlayer player = new SoloPlayer(item.getName());
-        player.setAvatar(item.getAvatarPath());
-        return player;
+    private boolean areViewsValid() {
+        if (!team_1_player_1.isValid() || !team_2_player_1.isValid() || (teamMode && (!team_2_player_2.isValid() || !team_1_player_2.isValid()))) {
+            return false;
+        }
+        return true;
     }
 
     private void handleImageClicked(View clickedImage) {
@@ -135,18 +142,16 @@ public class GameSetupActivity extends AppCompatActivity {
     }
 
     private File createImageFile() throws IOException {
-        // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
         File storageDir = getFilesDir();
         File imageFile = File.createTempFile(
-                imageFileName,  /* prefix */
-                ".jpg",         /* suffix */
-                storageDir      /* directory */
+                imageFileName,
+                ".jpg",
+                storageDir
         );
 
         lastSavedImagePath = imageFile.getAbsolutePath();
-//        Log.e("env", storageDir.getAbsolutePath());
         return imageFile;
     }
 
@@ -169,5 +174,29 @@ public class GameSetupActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean(TEAM_MODE, teamMode);
+        outState.putSerializable(TEAM_1_PLAYER_1, team_1_player_1.getPlayer());
+        outState.putSerializable(TEAM_2_PLAYER_1, team_2_player_1.getPlayer());
+        if (teamMode) {
+            outState.putSerializable(TEAM_1_PLAYER_2, team_1_player_2.getPlayer());
+            outState.putSerializable(TEAM_2_PLAYER_2, team_2_player_2.getPlayer());
+        }
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        teamMode = savedInstanceState.getBoolean(TEAM_MODE);
+        team_1_player_1.setPlayer((SoloPlayer) savedInstanceState.getSerializable(TEAM_1_PLAYER_1));
+        team_2_player_1.setPlayer((SoloPlayer) savedInstanceState.getSerializable(TEAM_2_PLAYER_1));
+        if (teamMode) {
+            team_1_player_2.setPlayer((SoloPlayer) savedInstanceState.getSerializable(TEAM_1_PLAYER_2));
+            team_2_player_2.setPlayer((SoloPlayer) savedInstanceState.getSerializable(TEAM_2_PLAYER_2));
+        }
+        super.onRestoreInstanceState(savedInstanceState);
     }
 }
