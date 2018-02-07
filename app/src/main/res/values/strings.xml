@@ -47,7 +47,7 @@
     <string name="no">No</string>
 
     <string-array name="themes">
-        <item>Grass</item>
-        <item>Sky</item>
+        <item>Grassland</item>
+        <item>Sky-High</item>
     </string-array>
 </resources>

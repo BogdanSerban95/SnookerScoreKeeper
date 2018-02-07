@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Spinner;
 
 import com.example.serba.snookertracker_1856482.R;
+import com.example.serba.snookertracker_1856482.models.ThemeUtils;
 
 
 /**
@@ -34,6 +35,8 @@ public class SettingsDialog extends DialogFragment {
 
         final View dialogView = inflater.inflate(R.layout.fragment_settings_dialog, container, false);
 
+        int themeId = ThemeUtils.getSelectedThemeId();
+        ((Spinner) dialogView.findViewById(R.id.theme_spinner)).setSelection(themeId == R.style.GrassTheme ? 0 : 1);
         dialogView.findViewById(R.id.change_theme_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -5,8 +5,6 @@
         <item name="colorPrimaryDark">@color/grassColorPrimaryDark</item>
         <item name="colorAccent">@color/grassColorAccent</item>
         <item name="android:textColor">@color/black</item>
-        <!--<item name="android:windowBackground">@color/colorPrimaryLightSecondary</item>-->
-
         <item name="buttonStyle">@style/GrassButtonStyle</item>
         <item name="attrColorPrimary">@color/grassColorPrimary</item>
         <item name="attrColorAccent">@color/grassColorAccent</item>
@@ -18,8 +16,6 @@
         <item name="colorPrimaryDark">@color/skyColorPrimaryDark</item>
         <item name="colorAccent">@color/skyColorAccent</item>
         <item name="android:textColor">@color/black</item>
-        <!--<item name="android:windowBackground">@color/colorPrimaryLight</item>-->
-
         <item name="buttonStyle">@style/SkyButtonStyle</item>
         <item name="attrColorPrimary">@color/skyColorPrimary</item>
         <item name="attrColorAccent">@color/skyColorAccent</item>
@@ -47,4 +43,5 @@
         <item name="android:textAllCaps">true</item>
         <item name="android:drawableTint">@color/black</item>
     </style>
+
 </resources>

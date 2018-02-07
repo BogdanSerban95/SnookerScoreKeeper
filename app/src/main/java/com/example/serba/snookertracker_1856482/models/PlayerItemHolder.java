@@ -3,6 +3,7 @@ package com.example.serba.snookertracker_1856482.models;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.design.widget.TextInputEditText;
@@ -44,7 +45,9 @@ public class PlayerItemHolder {
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inSampleSize = 4;
                 Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath(), options);
-                this.avatarImageView.setImageBitmap(myBitmap);
+                Matrix matrix = new Matrix();
+                matrix.postRotate(90);
+                this.avatarImageView.setImageBitmap(Bitmap.createBitmap(myBitmap, 0, 0, myBitmap.getWidth(), myBitmap.getHeight(), matrix, true));
             }
         } else {
             this.avatarImageView.setImageDrawable(this.parent.getContext().getResources().getDrawable(R.drawable.avatar));

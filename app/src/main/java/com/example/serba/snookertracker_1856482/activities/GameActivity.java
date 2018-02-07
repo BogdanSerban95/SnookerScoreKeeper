@@ -201,6 +201,10 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void endGame() {
+        if (getSupportFragmentManager().findFragmentByTag("game_over_dialog") != null) {
+            return;
+        }
+        
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         MatchResultsDialog matchResultsDialog = new MatchResultsDialog();
 
