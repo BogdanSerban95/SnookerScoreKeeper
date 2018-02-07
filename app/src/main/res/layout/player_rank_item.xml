@@ -14,7 +14,7 @@
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:background="@drawable/left_border_rounded"
-        android:backgroundTint="@color/colorAccentSecondary"
+        android:backgroundTint="@color/grassColorAccent"
         android:gravity="center"
         android:text="@string/rank_dummy"
         android:textColor="@color/white"

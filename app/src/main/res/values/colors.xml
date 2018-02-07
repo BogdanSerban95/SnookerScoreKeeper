@@ -2,21 +2,23 @@
 <resources>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
-    <color name="lightgray">#9e9e9e</color>
+    <color name="lightGrey">#9e9e9e</color>
 
-    <color name="colorPrimary">#01a9f4</color>
-    <color name="colorPrimaryDark">#007ac1</color>
-    <color name="colorPrimaryLight">#67daff</color>
-    <color name="colorAccent">#fcd734</color>
-    <color name="colorAccentLight">#ffff6b</color>
-    <color name="colorAccentDark">#c5a600</color>
+    <color name="skyColorPrimary">#01a9f4</color>
+    <color name="skyColorPrimaryDark">#007ac1</color>
+    <color name="skyColorPrimaryLight">#67daff</color>
+    <color name="skyColorAccent">#fcd734</color>
+    <color name="skyColorAccentLight">#ffff6b</color>
+    <color name="skyColorAccentDark">#c5a600</color>
+    <color name="skyColorAccentHighlight">#6467daff</color>
 
-    <color name="colorPrimarySecondary">#689f38</color>
-    <color name="colorPrimaryDarkSecondary">#387002</color>
-    <color name="colorPrimaryLightSecondary">#99d066</color>
-    <color name="colorAccentSecondary">#ff5722</color>
-    <color name="colorAccentLightSecondary">#ff8a50</color>
-    <color name="colorAccentDarkSecondary">#c41c00</color>
+    <color name="grassColorPrimary">#689f38</color>
+    <color name="grassColorPrimaryDark">#387002</color>
+    <color name="grassColorPrimaryLight">#99d066</color>
+    <color name="grassColorAccent">#ff5722</color>
+    <color name="grassColorAccentLight">#ff8a50</color>
+    <color name="grassColorAccentDark">#c41c00</color>
+    <color name="grassColorAccentHighlight">#6499d066</color>
 
     <!--Ball colors-->
     <color name="ballRed">#ff0000</color>

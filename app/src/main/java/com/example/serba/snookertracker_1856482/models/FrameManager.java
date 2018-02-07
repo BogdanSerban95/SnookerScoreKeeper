@@ -124,7 +124,11 @@ public class FrameManager implements Serializable {
     public void nextPlayer() {
         APlayer nextPlayer = playersQueue.remove();
         playersQueue.add(nextPlayer);
+        if (this.currentPlayer != null) {
+            ((SoloPlayer) this.currentPlayer).setStriking(false);
+        }
         this.currentPlayer = nextPlayer.getNextPlayer();
+        ((SoloPlayer) this.currentPlayer).setStriking(true);
         this.breakMode = false;
         this.frameListener.updateUI();
     }

@@ -120,9 +120,9 @@ public class MatchTypeDialog extends DialogFragment {
 
     private int getThemeBackground(boolean reset) {
         if (ThemeUtils.getSelectedThemeId() == R.style.GrassTheme) {
-            return reset ? R.color.colorAccentSecondary : R.color.colorAccentDarkSecondary;
+            return reset ? R.color.grassColorAccent : R.color.grassColorAccentDark;
         } else {
-            return reset ? R.color.colorAccent : R.color.colorAccentDark;
+            return reset ? R.color.skyColorAccent : R.color.skyColorAccentDark;
         }
     }
 }

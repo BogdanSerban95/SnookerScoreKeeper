@@ -11,10 +11,20 @@ import java.io.Serializable;
 
 public class SoloPlayer extends APlayer {
     private String avatarPath;
+    private boolean striking;
 
     public SoloPlayer(String name) {
         this.name = name;
         this.score = 0;
+        this.striking = false;
+    }
+
+    public void setStriking(boolean striking) {
+        this.striking = striking;
+    }
+
+    public boolean isStriking() {
+        return striking;
     }
 
     public String getAvatar() {
@@ -46,4 +56,6 @@ public class SoloPlayer extends APlayer {
             this.score += amount;
         }
     }
+
+
 }

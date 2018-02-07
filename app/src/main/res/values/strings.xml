@@ -41,6 +41,10 @@
     <string name="team_up_in_a_two_versus_two_game">Team up in a two versus two game</string>
     <string name="confirm_button_label">Press the button again to confirm</string>
     <string name="player_setup">Player Setup</string>
+    <string name="exit_dialog_title">End Match</string>
+    <string name="exit_dialog_message">Returning to menu screen results in current match progress being lost. Continue?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
     <string-array name="themes">
         <item>Grass</item>

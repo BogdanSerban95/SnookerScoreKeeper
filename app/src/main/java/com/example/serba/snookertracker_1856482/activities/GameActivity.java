@@ -1,14 +1,18 @@
 package com.example.serba.snookertracker_1856482.activities;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.PersistableBundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.serba.snookertracker_1856482.R;
 import com.example.serba.snookertracker_1856482.dialogs.MatchResultsDialog;
@@ -28,7 +32,7 @@ public class GameActivity extends AppCompatActivity {
     private APlayer playerOne;
     private APlayer playerTwo;
     private FrameManager frameManager;
-    
+
     private GamePlayerHolder team_1_player_1_holder;
     private GamePlayerHolder team_1_player_2_holder;
     private GamePlayerHolder team_2_player_1_holder;
@@ -211,13 +215,17 @@ public class GameActivity extends AppCompatActivity {
 
             @Override
             public void onEndMatchSelected() {
-                Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
+                goToMenuActivity();
             }
         });
 
         matchResultsDialog.show(transaction, "game_over_dialog");
+    }
+
+    public void goToMenuActivity() {
+        Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
     @Override
@@ -227,4 +235,22 @@ public class GameActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
     }
 
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle(getResources().getString(R.string.exit_dialog_title))
+                .setMessage(getResources().getString(R.string.exit_dialog_message))
+                .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        goToMenuActivity();
+                    }
+                })
+                .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                }).show();
+    }
 }

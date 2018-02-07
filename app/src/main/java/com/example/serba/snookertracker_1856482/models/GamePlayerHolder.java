@@ -2,6 +2,7 @@ package com.example.serba.snookertracker_1856482.models;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -63,6 +64,19 @@ public class GamePlayerHolder {
     public void updateViews() {
         SoloPlayer taggedPlayer = (SoloPlayer) this.parent.getTag();
         this.setScore(taggedPlayer.getScore());
+        if (taggedPlayer.isStriking()) {
+            this.parent.setBackgroundColor(this.parent.getResources().getColor(this.getThemeHighlightColor()));
+        } else {
+            this.parent.setBackgroundColor(Color.TRANSPARENT);
+        }
+    }
+
+    private int getThemeHighlightColor() {
+        if (ThemeUtils.getSelectedThemeId() == R.style.GrassTheme) {
+            return R.color.grassColorAccentHighlight;
+        } else {
+            return R.color.skyColorAccentHighlight;
+        }
     }
 
 
