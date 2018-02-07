@@ -2,6 +2,7 @@ package com.example.serba.snookertracker_1856482.models;
 
 import com.example.serba.snookertracker_1856482.R;
 
+import java.io.Serializable;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Queue;
@@ -10,7 +11,7 @@ import java.util.Queue;
  * Created by serba on 03/02/2018.
  */
 
-public class FrameManager {
+public class FrameManager implements Serializable {
     private static int penaltyPoints = 4;
 
     private APlayer firstContestant;
@@ -86,6 +87,14 @@ public class FrameManager {
         this.secondContestant = contestant;
     }
 
+    public APlayer getFirstContestant() {
+        return firstContestant;
+    }
+
+    public APlayer getSecondContestant() {
+        return secondContestant;
+    }
+
     public void potBall(SnookerBalls ball) {
         currentPlayer.increaseScore(ball.getPoints());
         if (ball == SnookerBalls.RED) {
@@ -137,5 +146,9 @@ public class FrameManager {
             default:
                 return R.color.ballRed;
         }
+    }
+
+    public void restoreState() {
+        this.frameListener.updateUI();
     }
 }

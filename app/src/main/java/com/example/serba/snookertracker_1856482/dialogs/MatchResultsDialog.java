@@ -2,6 +2,7 @@ package com.example.serba.snookertracker_1856482.dialogs;
 
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import java.util.Comparator;
 
 public class MatchResultsDialog extends DialogFragment {
 
+    private static final String RESULTS_LISTENER = "RESULTS_LISTENER";
     private boolean teamModeOn;
     private APlayer playerOne;
     private APlayer playerTwo;
@@ -112,7 +114,20 @@ public class MatchResultsDialog extends DialogFragment {
             }
         });
 
+    }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putSerializable(RESULTS_LISTENER, dialogListener);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            this.dialogListener = (MatchResultsDialogListener) savedInstanceState.getSerializable(RESULTS_LISTENER);
+        }
+        super.onViewStateRestored(savedInstanceState);
     }
 
     public APlayer[] sortPlayers(APlayer[] playersList) {

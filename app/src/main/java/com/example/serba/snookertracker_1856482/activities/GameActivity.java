@@ -1,6 +1,7 @@
 package com.example.serba.snookertracker_1856482.activities;
 
 import android.content.Intent;
+import android.os.PersistableBundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -21,16 +22,19 @@ import com.example.serba.snookertracker_1856482.models.SoloPlayer;
 import com.example.serba.snookertracker_1856482.models.ThemeUtils;
 
 public class GameActivity extends AppCompatActivity {
+    private static final String FRAME_MANAGER = "FRAME_MANAGER";
     private boolean teamModeOn = false;
+
     private APlayer playerOne;
     private APlayer playerTwo;
     private FrameManager frameManager;
+    
     private GamePlayerHolder team_1_player_1_holder;
     private GamePlayerHolder team_1_player_2_holder;
     private GamePlayerHolder team_2_player_1_holder;
     private GamePlayerHolder team_2_player_2_holder;
+
     private TextView strikingPlayerLabel;
-    private FloatingActionButton missButton;
     private View breakGroup;
     private FloatingActionButton redBallButton;
     private TextView teamOneScoreLabel;
@@ -39,6 +43,7 @@ public class GameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         ThemeUtils.setTheme(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
@@ -51,6 +56,42 @@ public class GameActivity extends AppCompatActivity {
             playerTwo = (APlayer) extras.getSerializable(GameSetupActivity.PLAYER_TWO);
         }
 
+        handleSavedState(savedInstanceState);
+
+        initPlayerHolders();
+
+        frameManager.setFrameListener(new FrameListener() {
+            @Override
+            public void updateUI() {
+                handleUpdateUI();
+            }
+        });
+
+        if (savedInstanceState == null) {
+            frameManager.initialiseFrame();
+            strikingPlayerLabel.setText(frameManager.getCurrentPlayer().getName());
+        } else {
+            frameManager.restoreState();
+        }
+    }
+
+    private void handleSavedState(Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            frameManager = (FrameManager) savedInstanceState.getSerializable(FRAME_MANAGER);
+            teamModeOn = savedInstanceState.getBoolean(GameSetupActivity.TEAM_MODE);
+            if (frameManager != null) {
+                playerOne = frameManager.getFirstContestant();
+                playerTwo = frameManager.getSecondContestant();
+            }
+
+        } else {
+            frameManager = new FrameManager();
+            frameManager.setFirstContestant(playerOne);
+            frameManager.setSecondContestant(playerTwo);
+        }
+    }
+
+    public void initPlayerHolders() {
         team_1_player_1_holder = new GamePlayerHolder(findViewById(R.id.team_1_player_1));
         team_2_player_1_holder = new GamePlayerHolder(findViewById(R.id.team_2_player_1));
 
@@ -60,46 +101,41 @@ public class GameActivity extends AppCompatActivity {
             findViewById(R.id.team_mode_group).setVisibility(View.VISIBLE);
         }
 
-//        Init players
         team_1_player_1_holder.setPlayer((SoloPlayer) playerOne.getNextPlayer());
         team_2_player_1_holder.setPlayer((SoloPlayer) playerTwo.getNextPlayer());
+
         if (teamModeOn) {
             team_1_player_2_holder.setPlayer((SoloPlayer) playerOne.getNextPlayer());
             team_2_player_2_holder.setPlayer((SoloPlayer) playerTwo.getNextPlayer());
         }
+    }
 
-        frameManager = new FrameManager();
-        frameManager.setFirstContestant(playerOne);
-        frameManager.setSecondContestant(playerTwo);
+    public void handleUpdateUI() {
+        team_1_player_1_holder.updateViews();
+        team_2_player_1_holder.updateViews();
 
-        frameManager.setFrameListener(new FrameListener() {
-            @Override
-            public void updateUI() {
-                team_1_player_1_holder.updateViews();
-                team_2_player_1_holder.updateViews();
-                if (teamModeOn) {
-                    team_1_player_2_holder.updateViews();
-                    team_2_player_2_holder.updateViews();
-                    teamOneScoreLabel.setText(String.valueOf(playerOne.getScore()));
-                    teamTwoScoreLabel.setText(String.valueOf(playerTwo.getScore()));
-                }
-                if (frameManager.isBreakMode()) {
-                    redBallButton.setVisibility(View.GONE);
-                    breakGroup.setVisibility(View.VISIBLE);
-                } else {
-                    redBallButton.setVisibility(View.VISIBLE);
-                    breakGroup.setVisibility(View.GONE);
-                }
+        if (teamModeOn) {
+            team_1_player_2_holder.updateViews();
+            team_2_player_2_holder.updateViews();
+            teamOneScoreLabel.setText(String.valueOf(playerOne.getScore()));
+            teamTwoScoreLabel.setText(String.valueOf(playerTwo.getScore()));
+        }
 
-                if (frameManager.isFinalPot() && !frameManager.isGameOver()) {
-                    redBallButton.setBackgroundTintList(getResources().getColorStateList(frameManager.getFinalPotColor()));
-                } else if (frameManager.isGameOver()) {
-                    endGame();
-                }
-            }
-        });
-        frameManager.initialiseFrame();
         strikingPlayerLabel.setText(frameManager.getCurrentPlayer().getName());
+
+        if (frameManager.isBreakMode()) {
+            redBallButton.setVisibility(View.GONE);
+            breakGroup.setVisibility(View.VISIBLE);
+        } else {
+            redBallButton.setVisibility(View.VISIBLE);
+            breakGroup.setVisibility(View.GONE);
+        }
+
+        if (frameManager.isFinalPot() && !frameManager.isGameOver()) {
+            redBallButton.setBackgroundTintList(getResources().getColorStateList(frameManager.getFinalPotColor()));
+        } else if (frameManager.isGameOver()) {
+            endGame();
+        }
     }
 
     public void initViews() {
@@ -121,7 +157,6 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 frameManager.nextPlayer();
-                strikingPlayerLabel.setText(frameManager.getCurrentPlayer().getName());
             }
         });
 
@@ -129,7 +164,6 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 frameManager.foul();
-                strikingPlayerLabel.setText(frameManager.getCurrentPlayer().getName());
             }
         });
 
@@ -185,4 +219,12 @@ public class GameActivity extends AppCompatActivity {
 
         matchResultsDialog.show(transaction, "game_over_dialog");
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putSerializable(FRAME_MANAGER, frameManager);
+        outState.putSerializable(GameSetupActivity.TEAM_MODE, teamModeOn);
+        super.onSaveInstanceState(outState);
+    }
+
 }
