@@ -60,6 +60,11 @@ public class GameActivity extends AppCompatActivity {
             playerTwo = (APlayer) extras.getSerializable(GameSetupActivity.PLAYER_TWO);
         }
 
+        if (!teamModeOn) {
+            ((TextView) findViewById(R.id.player_one_label)).setText(getResources().getString(R.string.player_one));
+            ((TextView) findViewById(R.id.player_two_label)).setText(getResources().getString(R.string.player_two));
+        }
+
         handleSavedState(savedInstanceState);
 
         initPlayerHolders();

@@ -8,8 +8,9 @@
         <!--<item name="android:windowBackground">@color/colorPrimaryLightSecondary</item>-->
 
         <item name="buttonStyle">@style/GrassButtonStyle</item>
-        <item name="rankColor">@color/grassColorAccent</item>
-        <item name="rankTextColor">@color/white</item>
+        <item name="attrColorPrimary">@color/grassColorPrimary</item>
+        <item name="attrColorAccent">@color/grassColorAccent</item>
+        <item name="attrTextColor">@color/white</item>
     </style>
 
     <style name="SkyTheme" parent="Theme.AppCompat.Light.DarkActionBar">
@@ -20,8 +21,9 @@
         <!--<item name="android:windowBackground">@color/colorPrimaryLight</item>-->
 
         <item name="buttonStyle">@style/SkyButtonStyle</item>
-        <item name="rankColor">@color/skyColorAccent</item>
-        <item name="rankTextColor">@color/black</item>
+        <item name="attrColorPrimary">@color/skyColorPrimary</item>
+        <item name="attrColorAccent">@color/skyColorAccent</item>
+        <item name="attrTextColor">@color/black</item>
     </style>
 
     <style name="GrassButtonStyle" parent="Widget.AppCompat.Button">

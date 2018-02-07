@@ -36,13 +36,15 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/attrColorPrimary"
+        android:gravity="center"
+        android:padding="4dp"
         android:text="@string/player_rankings"
         android:textAllCaps="true"
+        android:textColor="?attr/attrTextColor"
         android:textSize="@dimen/textSizeTitle"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -143,7 +145,7 @@
         android:id="@+id/team_players_group"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="gone"
         app:constraint_referenced_ids="rank_3_player_item,rank_4_player_item"
         tools:layout_editor_absoluteX="16dp" />
 

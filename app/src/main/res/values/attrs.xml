@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <attr name="rankColor" format="reference|color" />
-    <attr name="rankTextColor" format="reference|color" />
+    <attr name="attrColorPrimary" format="reference|color" />
+    <attr name="attrColorAccent" format="reference|color" />
+    <attr name="attrTextColor" format="reference|color" />
 </resources>
