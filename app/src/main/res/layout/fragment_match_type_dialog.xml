@@ -1,0 +1,78 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/screenMarginLeft"
+    tools:context="com.example.serba.snookertracker_1856482.dialogs.MatchTypeDialog">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/match_type"
+        android:textAllCaps="true"
+        android:textSize="@dimen/textSizeTitle"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/solo_game_button"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:drawableStart="@drawable/ic_person_white_36dp"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
+        android:text="@string/solo_1_vs_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <Button
+        android:id="@+id/duo_game_button"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:drawableStart="@drawable/ic_people_white_36dp"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp"
+        android:text="@string/duo_2_vs_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/solo_button_label" />
+
+    <TextView
+        android:id="@+id/solo_button_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/play_against_another_player"
+        android:textSize="@dimen/textSubheadingSize"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@+id/solo_game_button"
+        app:layout_constraintTop_toBottomOf="@+id/solo_game_button" />
+
+    <TextView
+        android:id="@+id/duo_button_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/team_up_in_a_two_versus_two_game"
+        android:textSize="@dimen/textSubheadingSize"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="@+id/duo_game_button"
+        app:layout_constraintTop_toBottomOf="@+id/duo_game_button" />
+
+</android.support.constraint.ConstraintLayout>

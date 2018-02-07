@@ -58,23 +58,17 @@ public class GameSetupActivity extends AppCompatActivity {
             }
         };
 
+        teamMode = getIntent().getBooleanExtra(TEAM_MODE, false);
+        if (!teamMode) {
+            teamGroup.setVisibility(View.GONE);
+        } else {
+            teamGroup.setVisibility(View.VISIBLE);
+        }
+
         team_1_player_1 = new PlayerItemHolder(findViewById(R.id.team_1_player_1), imageListener);
         team_1_player_2 = new PlayerItemHolder(findViewById(R.id.team_1_player_2), imageListener);
         team_2_player_1 = new PlayerItemHolder(findViewById(R.id.team_2_player_1), imageListener);
         team_2_player_2 = new PlayerItemHolder(findViewById(R.id.team_2_player_2), imageListener);
-
-        ((RadioGroup) findViewById(R.id.game_type_radio_group)).setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if (i == R.id.solo_radio_button) {
-                    teamGroup.setVisibility(View.GONE);
-                    teamMode = false;
-                } else if (i == R.id.team_radio_button) {
-                    teamGroup.setVisibility(View.VISIBLE);
-                    teamMode = true;
-                }
-            }
-        });
 
         findViewById(R.id.begin_match_button).setOnClickListener(new View.OnClickListener() {
             @Override

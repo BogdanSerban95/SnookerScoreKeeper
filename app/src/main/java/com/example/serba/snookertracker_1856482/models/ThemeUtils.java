@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import com.example.serba.snookertracker_1856482.R;
+
 import java.util.prefs.Preferences;
 
 /**
@@ -27,10 +29,14 @@ public class ThemeUtils {
         SharedPreferences sharedPreferences = activity.getSharedPreferences(SETTINGS_PREFERENCES, Context.MODE_PRIVATE);
         selectedThemeId = sharedPreferences.getInt(THEME_ID, -1);
 
-        Log.w("Theme id", String.valueOf(selectedThemeId));
-
         if (selectedThemeId != -1) {
             activity.setTheme(selectedThemeId);
+        } else {
+            selectedThemeId = R.style.GrassTheme;
         }
+    }
+
+    public static int getSelectedThemeId() {
+        return selectedThemeId;
     }
 }

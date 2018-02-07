@@ -2,6 +2,7 @@ package com.example.serba.snookertracker_1856482.dialogs;
 
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import com.example.serba.snookertracker_1856482.R;
  * A simple {@link Fragment} subclass.
  */
 public class SettingsDialog extends DialogFragment {
+    private static final String SETTINGS_LISTENER = "SETTINGS_LISTENER";
     private SettingsDialogListener dialogListener;
 
     public SettingsDialog() {
@@ -44,4 +46,17 @@ public class SettingsDialog extends DialogFragment {
         return dialogView;
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putSerializable(SETTINGS_LISTENER, dialogListener);
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            dialogListener = (SettingsDialogListener) savedInstanceState.getSerializable(SETTINGS_LISTENER);
+        }
+        super.onViewStateRestored(savedInstanceState);
+    }
 }

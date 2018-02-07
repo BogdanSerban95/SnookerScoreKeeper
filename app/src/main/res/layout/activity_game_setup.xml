@@ -7,33 +7,6 @@
     tools:context="com.example.serba.snookertracker_1856482.activities.GameSetupActivity"
     tools:layout_editor_absoluteY="81dp">
 
-    <RadioGroup
-        android:id="@+id/game_type_radio_group"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <RadioButton
-            android:id="@+id/solo_radio_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:checked="true"
-            android:text="@string/solo" />
-
-        <RadioButton
-            android:id="@+id/team_radio_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/teams" />
-    </RadioGroup>
-
     <Button
         android:id="@+id/begin_match_button"
         android:layout_width="0dp"
@@ -53,10 +26,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/team_1_player_2"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/game_type_radio_group"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <include
@@ -66,10 +40,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toTopOf="@+id/team_2_player_2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/game_type_radio_group"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <include
@@ -108,8 +83,7 @@
         app:layout_constraintEnd_toStartOf="@+id/team_2_player_1"
         app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toEndOf="@+id/team_1_player_1"
-        app:layout_constraintTop_toBottomOf="@+id/game_type_radio_group"
-        app:layout_constraintVertical_bias="0.513"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
         app:srcCompat="@drawable/vs" />
 
     <android.support.constraint.Guideline
@@ -125,5 +99,20 @@
         android:layout_height="wrap_content"
         android:visibility="gone"
         app:constraint_referenced_ids="team_1_player_2,team_2_player_2" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/player_setup"
+        android:textAllCaps="true"
+        android:textSize="@dimen/textSizeTitle"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

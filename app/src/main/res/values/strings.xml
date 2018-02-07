@@ -34,6 +34,13 @@
     <string name="play_again">Play Again</string>
     <string name="end_game">End Game</string>
     <string name="camera_error">Error encountered while getting camera ready</string>
+    <string name="match_type">Match Type</string>
+    <string name="solo_1_vs_1">Solo: 1 vs 1</string>
+    <string name="duo_2_vs_2">Duo: 2 vs 2</string>
+    <string name="play_against_another_player">Play against another player</string>
+    <string name="team_up_in_a_two_versus_two_game">Team up in a two versus two game</string>
+    <string name="confirm_button_label">Press the button again to confirm</string>
+    <string name="player_setup">Player Setup</string>
 
     <string-array name="themes">
         <item>Grass</item>
